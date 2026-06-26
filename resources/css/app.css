@@ -23,8 +23,14 @@
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
 
-    --color-accent: var(--color-neutral-800);
-    --color-accent-content: var(--color-neutral-800);
+    /* Color azul */
+    --color-primary: #091231;
+
+    /* Color dorado */
+    --color-secondary: #C88500;
+
+    --color-accent: var(--color-primary);
+    --color-accent-content: var(--color-primary);
     --color-accent-foreground: var(--color-white);
 }
 
