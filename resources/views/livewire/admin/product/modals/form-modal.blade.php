@@ -2,7 +2,7 @@
     <div class="bg-white w-full rounded-lg shadow-lg flex flex-col max-h-[90vh]">
         <div
             class="py-4 px-6 flex justify-between items-center bg-white sticky top-0 z-10 border-b border-gray-200 pb-2">
-            <h1 class="text-lg font-bold text-primary dark:text-white">Añadir producto</h1>
+            <h1 class="text-lg font-bold text-secondary dark:text-white">{{$form->productModel ? 'Editar' : 'Añadir'}} Producto</h1>
             <button type="button" x-on:click="$dispatch('close-modal', 'form-modal')"
                 class="cursor-pointer text-gray-500 hover:text-gray-700 hover:animate-spin">
                 <flux:icon.x-mark />
@@ -10,29 +10,48 @@
         </div>
 
         <div class="p-5 overflow-y-auto flex-1 space-y-3" style="max-height: calc(90vh - 60px);">
-
-            <div class="space-y-1">
-                <flux:text class="font-semibold text-primary">Nombre</flux:text>
-                <flux:input type="text" placeholder="Nombre" wire:model="form.name" />
-                <flux:error name="form.name" />
-            </div>
-
-            <div class="grid grid-cols-2 gap-5 justify-between mt-3">
+            <div class="grid grid-cols-2 gap-5 justify-between">
                 <div class="space-y-1">
-                    <flux:text class="font-semibold text-primary">Precio del catalogo</flux:text>
-                    <flux:input type="number" placeholder="Catálogo" wire:model="form.priceCatalog" />
+                    <flux:text class="font-semibold text-secondary">Nombre</flux:text>
+                    <flux:input type="text" placeholder="Nombre" wire:model="form.name" />
+                    <flux:error name="form.name" />
+                </div>
+
+                <div class="space-y-1">
+                    <flux:text class="font-semibold text-secondary">Provedor</flux:text>
+                    <flux:select wire:model="form.provider">
+                        <flux:select.option>Selecciona un proovedor</flux:select.option>
+                        @foreach ($providers as $provider)
+                            <flux:select.option value="{{ $provider->id }}">{{ $provider->name }}</flux:select.option>
+                        @endforeach
+                    </flux:select>
+                    <flux:error name="form.provider" />
+                </div>
+
+                 {{-- mask:dynamic="$money($input, ',', '.', 0)"  --}}
+                <div class="space-y-1">
+                    <flux:text class="font-semibold text-secondary">Precio del catalogo</flux:text>
+                    <flux:input mask:dynamic="$money($input, ',', '.', 0)" placeholder="Catálogo" wire:model="form.priceCatalog" />
                     <flux:error name="form.priceCatalog" />
                 </div>
 
                 <div class="space-y-1">
-                    <flux:text class="font-semibold text-primary">Precio de venta</flux:text>
-                    <flux:input type="number" placeholder="Venta" wire:model="form.priceSale" />
+                    <flux:text class="font-semibold text-secondary">Precio de venta</flux:text>
+                    <flux:input mask:dynamic="$money($input, ',', '.', 0)" placeholder="Venta" wire:model="form.priceSale" />
                     <flux:error name="form.priceSale" />
                 </div>
             </div>
 
             <div class="space-y-1">
-                <flux:text class="font-semibold text-primary">Estado</flux:text>
+                <flux:text class="font-semibold text-secondary">Descripción</flux:text>
+                <flux:textarea resize="none" wire:model="form.description"
+                    placeholder="Escribe una descripción del producto" />
+
+                <flux:error name="form.description" />
+            </div>
+
+            <div class="space-y-1">
+                <flux:text class="font-semibold text-secondary">Estado</flux:text>
                 <flux:radio.group wire:model="form.status" variant="cards" class="max-sm:flex-col h-10">
                     <flux:radio value="active" label="Activo" class="cursor-pointer !p-2" />
                     <flux:radio value="inactive" label="Inactivo" class="cursor-pointer !p-2" />
