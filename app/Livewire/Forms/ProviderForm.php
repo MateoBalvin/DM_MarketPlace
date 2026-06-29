@@ -8,27 +8,27 @@ use Livewire\Form;
 
 class ProviderForm extends Form
 {
-    public ?Provider $providerModel = null;
+	public ?Provider $providerModel = null;
 	public $name;
 	public $email;
 	public $phone;
-    public $address;
+	public $address;
 	public $status;
-	
+
 
 	protected $rules = [
 		'name' => 'required|min:3',
 		'email' => 'nullable',
 		'phone' => 'required|min:3',
-        'address' => 'nullable',
+		'address' => 'nullable',
 		'status' => 'required',
 	];
 
 	protected $messages = [
 		'name.required' => 'El nombre es obligatorio',
-        'phone.required' => 'El teléfono es obligatorio',
+		'phone.required' => 'El teléfono es obligatorio',
 		'status.required' => 'El estado es obligatorio',
-		
+
 		'name.min' => 'El nombre al menos debe tener 3 carácteres',
 		'phone.min' => 'El teléfono al menos debe tener 3 carácteres',
 	];
@@ -40,7 +40,7 @@ class ProviderForm extends Form
 		$this->email = $providerModel->email;
 		$this->phone = $providerModel->phone;
 		$this->address = $providerModel->address;
-        $this->status = $providerModel->status;
+		$this->status = $providerModel->status;
 	}
 
 	public function createProvider()
@@ -54,7 +54,7 @@ class ProviderForm extends Form
 			'address' => $this->address,
 			'status' => $this->status,
 		]);
-
+ 
 		return $providerCreate;
 	}
 

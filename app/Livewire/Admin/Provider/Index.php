@@ -56,13 +56,13 @@ class Index extends Component
     $this->dispatch('OpenFormModal');
   }
 
-  public function editModal(int $productId)
+  public function editModal(int $providerId)
   {
-    $this->dispatch('OpenFormModal', $productId);
+    $this->dispatch('OpenFormModal', $providerId);
   }
 
-  public function deleteModal(int $productId)
+  public function deleteModal(int $providerId)
   {
-    $this->dispatch('OpenDeleteModal', $productId);
+    $this->dispatch('OpenDeleteModal', $providerId);
   }
 }

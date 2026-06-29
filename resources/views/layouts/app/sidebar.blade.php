@@ -15,26 +15,33 @@
 
         <flux:sidebar.nav>
             <flux:sidebar.group class="grid">
-                <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
-                    wire:navigate>
+                <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate
+                    :class="request()->routeIs('dashboard') ? '!bg-primary !text-white' : 'hover:!bg-primary hover:!text-white transition duration-200'">
                     Inicio
                 </flux:sidebar.item>
 
-                <flux:sidebar.item icon="user" :href="route('admin.customer.index')"
-                    :current="request()->routeIs('admin.customer.index')" wire:navigate>
-                    Clientes
+                <flux:sidebar.item icon="shopping-bag" :href="route('admin.sale.index')"
+                    :current="request()->routeIs('admin.sale.index')" wire:navigate
+                    :class="request()->routeIs('admin.sale.index') ? '!bg-primary !text-white' : 'hover:!bg-primary hover:!text-white transition duration-200'">
+                    Ventas
                 </flux:sidebar.item>
-                <flux:sidebar.item icon="building-storefront" :href="route('admin.provider.index')"
-                    :current="request()->routeIs('admin.provider.index')" wire:navigate>
-                    Proveedores
-                </flux:sidebar.item>
+
                 <flux:sidebar.item icon="shopping-cart" :href="route('admin.product.index')"
-                    :current="request()->routeIs('admin.product.index')" wire:navigate>
+                    :current="request()->routeIs('admin.product.index')" wire:navigate
+                    :class="request()->routeIs('admin.product.index') ? '!bg-primary !text-white' : 'hover:!bg-primary hover:!text-white transition duration-200'">
                     Productos
                 </flux:sidebar.item>
-                <flux:sidebar.item icon="shopping-bag" :href="route('admin.sale.index')"
-                    :current="request()->routeIs('admin.sale.index')" wire:navigate>
-                    Ventas
+
+                <flux:sidebar.item icon="building-storefront" :href="route('admin.provider.index')"
+                    :current="request()->routeIs('admin.provider.index')" wire:navigate
+                    :class="request()->routeIs('admin.provider.index') ? '!bg-primary !text-white' : 'hover:!bg-primary hover:!text-white transition duration-200'">
+                    Proveedores
+                </flux:sidebar.item>
+
+                <flux:sidebar.item icon="user" :href="route('admin.customer.index')"
+                    :current="request()->routeIs('admin.customer.index')" wire:navigate
+                    :class="request()->routeIs('admin.customer.index') ? '!bg-primary !text-white' : 'hover:!bg-primary hover:!text-white transition duration-200'">
+                    Clientes
                 </flux:sidebar.item>
             </flux:sidebar.group>
         </flux:sidebar.nav>
