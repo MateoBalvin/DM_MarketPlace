@@ -48,6 +48,7 @@ class Index extends Component
 			->when($this->setProvider, function ($query3) {
 				$query3->where('provider_id', $this->setProvider);
 			})
+			->orderBy('updated_at','desc')
 			->paginate($this->limit);
 
 		return $products;

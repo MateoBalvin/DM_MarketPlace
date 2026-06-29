@@ -24,7 +24,7 @@
                     :current="request()->routeIs('admin.customer.index')" wire:navigate>
                     Clientes
                 </flux:sidebar.item>
-                <flux:sidebar.item icon="users" :href="route('admin.provider.index')"
+                <flux:sidebar.item icon="building-storefront" :href="route('admin.provider.index')"
                     :current="request()->routeIs('admin.provider.index')" wire:navigate>
                     Proveedores
                 </flux:sidebar.item>
