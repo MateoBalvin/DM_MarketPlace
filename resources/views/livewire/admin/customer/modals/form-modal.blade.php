@@ -2,7 +2,7 @@
     <div class="bg-white w-full rounded-lg shadow-lg flex flex-col max-h-[90vh]">
         <div
             class="py-4 px-6 flex justify-between items-center bg-white sticky top-0 z-10 border-b border-gray-200 pb-2">
-            <h1 class="text-lg font-bold text-secondary dark:text-white">{{$form->productModel ? 'Editar' : 'Añadir'}} Producto</h1>
+            <h1 class="text-lg font-bold text-secondary dark:text-white">{{$form->customerModel ? 'Editar' : 'Añadir'}} cliente</h1>
             <button type="button" x-on:click="$dispatch('close-modal', 'form-modal')"
                 class="cursor-pointer text-gray-500 hover:text-gray-700 hover:animate-spin">
                 <flux:icon.x-mark />
@@ -13,41 +13,27 @@
             <div class="grid grid-cols-2 gap-5 justify-between">
                 <div class="space-y-1">
                     <flux:text class="font-semibold text-secondary">Nombre</flux:text>
-                    <flux:input type="text" placeholder="Nombre" wire:model="form.name" />
+                    <flux:input type="text" placeholder="Nombre del cliente" wire:model="form.name" />
                     <flux:error name="form.name" />
                 </div>
 
                 <div class="space-y-1">
-                    <flux:text class="font-semibold text-secondary">Provedor</flux:text>
-                    <flux:select wire:model="form.provider">
-                        <flux:select.option>Selecciona un proovedor</flux:select.option>
-                        @foreach ($providers as $provider)
-                            <flux:select.option value="{{ $provider->id }}">{{ $provider->name }}</flux:select.option>
-                        @endforeach
-                    </flux:select>
-                    <flux:error name="form.provider" />
-                </div>
-
-                 {{-- mask:dynamic="$money($input, ',', '.', 0)"  --}}
-                <div class="space-y-1">
-                    <flux:text class="font-semibold text-secondary">Precio del catalogo</flux:text>
-                    <flux:input mask:dynamic="$money($input, ',', '.', 0)" placeholder="Catálogo" wire:model="form.priceCatalog" />
-                    <flux:error name="form.priceCatalog" />
+                    <flux:text class="font-semibold text-secondary">Correo</flux:text>
+                    <flux:input type="email" placeholder="Correo" wire:model="form.email" />
+                    <flux:error name="form.email" />
                 </div>
 
                 <div class="space-y-1">
-                    <flux:text class="font-semibold text-secondary">Precio de venta</flux:text>
-                    <flux:input mask:dynamic="$money($input, ',', '.', 0)" placeholder="Venta" wire:model="form.priceSale" />
-                    <flux:error name="form.priceSale" />
+                    <flux:text class="font-semibold text-secondary">Teléfono</flux:text>
+                    <flux:input placeholder="Teléfono" mask="(999) 999-9999" wire:model="form.phone" />
+                    <flux:error name="form.phone" />
                 </div>
-            </div>
 
-            <div class="space-y-1">
-                <flux:text class="font-semibold text-secondary">Descripción</flux:text>
-                <flux:textarea resize="none" wire:model="form.description"
-                    placeholder="Escribe una descripción del producto" />
-
-                <flux:error name="form.description" />
+                <div class="space-y-1">
+                    <flux:text class="font-semibold text-secondary">Dirección</flux:text>
+                    <flux:input placeholder="Dirección" wire:model="form.address" />
+                    <flux:error name="form.address" />
+                </div>
             </div>
 
             <div class="space-y-1">

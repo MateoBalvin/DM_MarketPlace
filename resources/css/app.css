@@ -23,11 +23,15 @@
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
 
-    /* Color azul */
-    --color-primary: #091231;
-
+    --color-black: #111111;
+    
     /* Color dorado */
-    --color-secondary: #C88500;
+    --color-primary: #C79A2D;
+
+    /* Color dorado oscuro */
+    --color-secondary: #996714;
+
+    --color-label: #5f594f;
 
     --color-accent: var(--color-primary);
     --color-accent-content: var(--color-primary);

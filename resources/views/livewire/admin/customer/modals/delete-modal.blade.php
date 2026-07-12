@@ -6,19 +6,19 @@
 
         <div>
             <flux:text class="text-lg font-bold text-black">
-                Eliminar producto
+                Eliminar proveedor
             </flux:text>
 
             <flux:text class="mt-1 text-gray-500">
-                Esta acción eliminará el producto y no podrá recuperarse.
+                Esta acción eliminará el proveedor y no podrá recuperarse.
             </flux:text>
         </div>
     </div>
 
     <div class="mt-6 rounded-lg border border-gray-300 bg-gray-50 p-4">
         <flux:text class="text-black font-bold">
-            Producto: 
-            <span class="font-normal">{{$product?->name}}</span> 
+            Proveedor: 
+            <span class="font-normal">{{$customer?->name}}</span> 
         </flux:text>
 
         <flux:text class="text-gray-500 mt-1">
