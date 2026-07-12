@@ -26,7 +26,7 @@
             </div>
 
             <div>
-                <flux:button variant="primary" icon="user-plus" class="cursor-pointer" wire:click="saleDetailModal">Añadir
+                <flux:button variant="primary" icon="plus" class="cursor-pointer" wire:click="saleDetailModal">Añadir
                     venta</flux:button>
             </div>
         </div>
@@ -41,7 +41,7 @@
                         <th class="px-4 py-4 text-left">Productos</th>
                         <th class="px-4 py-4 text-left">Total</th>
                         <th class="px-4 py-4 text-left">Fecha</th>
-                        {{-- <th class="px-4 py-4 text-left">Estado</th> --}}
+                        <th class="px-4 py-4 text-left">Estado</th>
                         <th class="px-4 py-4 text-center rounded-tr-xl">Acciones</th>
                     </tr>
                 </thead>
@@ -60,31 +60,31 @@
                             </td>
 
                             <td class="px-4 py-3 text-label">
-                                {{$sale->total ?? '-'}}
+                                {{ $sale->total ?? '-' }}
                             </td>
 
                             <td class="px-4 py-3 text-label">
-                                {{$sale->sold_at ?? '-'}}
+                                {{ $sale->sold_at ?? '-' }}
                             </td>
 
-                            {{-- <td class="px-4 py-3">
-                                estado
-                                @if ($sale->status == 'active')
+                            <td class="px-4 py-3">
+                                @if ($sale->status == 'pending')
                                     <div
-                                        class="text-center p-1 rounded-lg border border-secondary text-secondary bg-secondary/10 font-semibold w-15">
-                                        Activo
+                                        class="text-center p-1 rounded-lg border border-secondary text-secondary bg-secondary/10 font-semibold w-20">
+                                        Pendiente
                                     </div>
                                 @else
                                     <div
-                                        class="text-center p-1 rounded-lg border border-black text-black bg-[#dfdfdf] font-semibold w-15">
-                                        Inactivo
+                                        class="text-center p-1 rounded-lg border border-black text-black bg-[#dfdfdf] font-semibold w-20">
+                                        Completado
                                     </div>
                                 @endif
-                            </td> --}}
+                            </td>
 
                             <td class="px-4 py-3 text-center">
                                 <flux:tooltip content="Ver">
-                                    <flux:button variant="primary" size="xs" icon="eye" class="cursor-pointer"/>
+                                    <flux:button variant="primary" size="xs" icon="eye"
+                                        class="cursor-pointer" />
                                 </flux:tooltip>
                             </td>
                         </tr>

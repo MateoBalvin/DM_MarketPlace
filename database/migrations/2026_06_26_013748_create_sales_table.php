@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->nullable()->constrained('customers')->nullOnDelete();
             $table->unsignedInteger('total')->nullable();
-            // $table->unsignedInteger('status')->nullable();
             $table->dateTime('sold_at')->nullable();
+            $table->enum('status', ['pending', 'complete'])->nullable();
             $table->timestamps();
         });
     }

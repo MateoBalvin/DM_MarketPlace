@@ -26,7 +26,7 @@
             </div>
 
             <div>
-                <flux:button variant="primary" icon="user-plus" class="cursor-pointer" wire:click="formModal">Añadir
+                <flux:button variant="primary" icon="plus" class="cursor-pointer" wire:click="formModal">Añadir
                     proveedor</flux:button>
             </div>
         </div>

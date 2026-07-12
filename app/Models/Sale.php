@@ -12,6 +12,7 @@ class Sale extends Model
     'customer_id',
     'total',
     'sold_at',
+    'status',
   ];
 
   protected $cast = [
